@@ -1,7 +1,8 @@
-export function debounce(fn: (...args: any[]) => any , duration: number) {
+export function debounce(func: Function, wait: number): Function {
   let timerId: number;
-  return function(...args: any[]) {
+
+  return function(this: any, ...args: any[]) {
     clearTimeout(timerId);
-    timerId = setTimeout(() => fn(...args), duration)
+    timerId = setTimeout(() => func.apply(this, args), wait)
   }
 }
