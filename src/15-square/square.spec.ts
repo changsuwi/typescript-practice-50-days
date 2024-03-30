@@ -1,14 +1,6 @@
-import { beforeEach, describe, expect, test, vi } from 'vitest';
+import { describe, expect, test } from "vitest";
+import "./square";
 
-Array.prototype.square = function() {
-  return this.map(e => e*e)
-}
-
-declare global {
-  interface Array<T> {
-    square(): Array<T> ;
-  }
-}
 
 const arr = [1, 2, 3, 4]
 describe('square', () => {
